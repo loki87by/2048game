@@ -1,0 +1,16 @@
+.Popup__container {
+  position: relative;
+  z-index: 2;
+  width: 80vmin;
+  height: 80vmin;
+  padding: 4vmin;
+  margin: auto;
+  border-radius: 4vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+}

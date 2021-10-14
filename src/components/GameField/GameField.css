@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Iceberg";
+  src: url("../../vendor/Iceberg-Regular.woff") format("woff");
+}
+
+.GameField {
+  z-index: 1;
+  width: 78vmin;
+  height: 78vmin;
+  grid-template-rows: repeat(4, 18vmin);
+  grid-template-columns: repeat(4, 18vmin);
+  grid-gap: 2vmin;
+  padding: 2vmin;
+  margin: auto;
+  display: grid;
+  grid-template-areas:
+    "top1 top2 top3 top4"
+    "second1 second2 second3 second4"
+    "third1 third2 third3 third4"
+    "bottom1 bottom2 bottom3 bottom4";
+  font-family: "Iceberg", sans-serif;
+  font-weight: bold;
+}

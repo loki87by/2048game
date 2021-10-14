@@ -1,0 +1,7 @@
+.Header__button-image {
+  max-width: 8vmin;
+  border: 1px solid black;
+  box-sizing: border-box;
+  object-fit: cover;
+  cursor: pointer;
+}

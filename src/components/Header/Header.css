@@ -1,0 +1,8 @@
+.Header {
+  position: relative;
+  z-index: 3;
+  padding: 1vmin 5vmax;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+}

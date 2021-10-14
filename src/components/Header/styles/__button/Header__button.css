@@ -1,0 +1,9 @@
+.Header__button {
+  width: 25%;
+  height: max-content;
+  padding: 0;
+  border: none;
+  display: flex;
+  line-height: 0;
+  background: transparent;
+}

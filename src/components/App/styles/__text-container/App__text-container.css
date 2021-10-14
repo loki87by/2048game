@@ -1,0 +1,7 @@
+.App__text-container {
+  position: absolute;
+  z-index: 2;
+  top: -100%;
+  background: var(--bg-color);
+  transition: top 0.7s linear;
+}
