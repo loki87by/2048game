@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.b481c6a1.chunk.css",
-    "main.js": "/static/js/main.cc91b738.chunk.js",
-    "main.js.map": "/static/js/main.cc91b738.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.cca08399.js",
-    "runtime-main.js.map": "/static/js/runtime-main.cca08399.js.map",
-    "static/js/2.5897f062.chunk.js": "/static/js/2.5897f062.chunk.js",
-    "static/js/2.5897f062.chunk.js.map": "/static/js/2.5897f062.chunk.js.map",
-    "static/js/3.f0ad0f8c.chunk.js": "/static/js/3.f0ad0f8c.chunk.js",
-    "static/js/3.f0ad0f8c.chunk.js.map": "/static/js/3.f0ad0f8c.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.b481c6a1.chunk.css.map": "/static/css/main.b481c6a1.chunk.css.map",
-    "static/js/2.5897f062.chunk.js.LICENSE.txt": "/static/js/2.5897f062.chunk.js.LICENSE.txt",
-    "static/media/GameField.css": "/static/media/Iceberg-Regular.1ffbc606.woff",
-    "static/media/RU.9a6254bc.png": "/static/media/RU.9a6254bc.png",
-    "static/media/UK.24a08dc3.png": "/static/media/UK.24a08dc3.png"
+    "main.css": "/2048game/static/css/main.d2e1754c.chunk.css",
+    "main.js": "/2048game/static/js/main.cc91b738.chunk.js",
+    "main.js.map": "/2048game/static/js/main.cc91b738.chunk.js.map",
+    "runtime-main.js": "/2048game/static/js/runtime-main.d1cb3c88.js",
+    "runtime-main.js.map": "/2048game/static/js/runtime-main.d1cb3c88.js.map",
+    "static/js/2.5897f062.chunk.js": "/2048game/static/js/2.5897f062.chunk.js",
+    "static/js/2.5897f062.chunk.js.map": "/2048game/static/js/2.5897f062.chunk.js.map",
+    "static/js/3.f0ad0f8c.chunk.js": "/2048game/static/js/3.f0ad0f8c.chunk.js",
+    "static/js/3.f0ad0f8c.chunk.js.map": "/2048game/static/js/3.f0ad0f8c.chunk.js.map",
+    "index.html": "/2048game/index.html",
+    "static/css/main.d2e1754c.chunk.css.map": "/2048game/static/css/main.d2e1754c.chunk.css.map",
+    "static/js/2.5897f062.chunk.js.LICENSE.txt": "/2048game/static/js/2.5897f062.chunk.js.LICENSE.txt",
+    "static/media/GameField.css": "/2048game/static/media/Iceberg-Regular.1ffbc606.woff",
+    "static/media/RU.9a6254bc.png": "/2048game/static/media/RU.9a6254bc.png",
+    "static/media/UK.24a08dc3.png": "/2048game/static/media/UK.24a08dc3.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.cca08399.js",
+    "static/js/runtime-main.d1cb3c88.js",
     "static/js/2.5897f062.chunk.js",
-    "static/css/main.b481c6a1.chunk.css",
+    "static/css/main.d2e1754c.chunk.css",
     "static/js/main.cc91b738.chunk.js"
   ]
 }
