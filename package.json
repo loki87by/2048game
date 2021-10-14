@@ -1,5 +1,6 @@
 {
   "name": "2048",
+  "homepage": "https://loki87by.github.io/2048game/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
