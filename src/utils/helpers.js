@@ -4,7 +4,7 @@ export const newgame = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     arr[i].number = "";
     arr[i].back = "white";
-    arr[i].size = "4.5vw";
+    arr[i].size = "10vmin";
     arr[i].color = "black";
   }
   arr[rand].number = 2;
@@ -31,11 +31,11 @@ export function styler(array) {
       item.back = "white";
     }
     if (item.number > 9999) {
-      item.size = "3vw";
+      item.size = "5vmin";
     } else if (item.number > 999) {
-      item.size = "3.5vw";
+      item.size = "7vmin";
     } else {
-      item.size = "4.5vw";
+      item.size = "10vmin";
     }
     if (item.number > 2000) {
       item.color = "white";
