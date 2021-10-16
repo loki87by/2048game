@@ -1,8 +1,11 @@
 .Header__score {
   margin: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: var(--bg-color);
+  -webkit-filter: invert(1);
   filter: invert(1);
   font-weight: bold;
   font-size: 6vmin;

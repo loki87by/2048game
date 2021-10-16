@@ -18,8 +18,7 @@ export const translations = {
     dayEnd: "The working day is almost over, maybe it's time to get home?",
     thanx: "Yes, thanks, stayed too long",
     score: "Score: ",
-
-    background: "Change background:"
+    background: "Change background:",
   },
   ru: {
     rulesTitle: "Правила",
@@ -36,6 +35,6 @@ export const translations = {
     restart: "Попробовать еще раз",
     loose: "Сожалею, но вы проиграли.",
     score: "Счет: ",
-    background: "Сменить фон:"
+    background: "Сменить фон:",
   },
 };

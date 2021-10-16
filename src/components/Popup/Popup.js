@@ -28,6 +28,7 @@ function Popup(props) {
   // *закрытие попапа
   function handleClick() {
     props.onClose();
+
     if (props.popupType === "loose") {
       props.setEndGame(true);
       props.setGameStarted(false);

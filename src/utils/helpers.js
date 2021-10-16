@@ -12,6 +12,7 @@ export const newgame = (arr) => {
 
 export const getNewNumber = () => {
   let random = Math.random();
+
   if (random > 0.85) {
     return 4;
   } else {
@@ -21,6 +22,7 @@ export const getNewNumber = () => {
 
 export function styler(array) {
   array.forEach((item) => {
+
     if (item.number < 65) {
       item.back = `rgb(${255 - item.number * 4}, 255, 255)`;
     } else if (item.number > 65 && item.number < 1024) {
@@ -30,6 +32,7 @@ export function styler(array) {
     } else {
       item.back = "white";
     }
+
     if (item.number > 9999) {
       item.size = "5vmin";
     } else if (item.number > 999) {
@@ -37,6 +40,7 @@ export function styler(array) {
     } else {
       item.size = "10vmin";
     }
+
     if (item.number > 2000) {
       item.color = "white";
     } else {

@@ -22,6 +22,7 @@ import "./GameField.css";
 
 // ***функционал
 function GameField(props) {
+
   // **стейты
   const [maxNumber, setMaxNumber] = React.useState(16);
   const [touchStart, setTouchStart] = React.useState({});
@@ -35,7 +36,7 @@ function GameField(props) {
     props.setEndGame(false);
     props.setGameStarted(true);
     setNewNumber();
-      props.setRulesOpen(false);
+    props.setRulesOpen(false);
     window.removeEventListener("keydown", startGame);
     window.removeEventListener("touchstart", startGame);
   };
@@ -60,6 +61,7 @@ function GameField(props) {
     let quantity = 0;
     let indexes = [];
     array.forEach(function (item, index) {
+
       if (item.number === "") {
         quantity = quantity + 1;
         indexes.push(index);
@@ -88,8 +90,10 @@ function GameField(props) {
 
   // *сложение соседних дублей
   function summ(a, b) {
+
     if (a === b) {
       sum = a + b;
+
       if (!isNaN(sum)) {
         let newScore = props.score + sum;
         props.setScore(newScore);
@@ -103,6 +107,7 @@ function GameField(props) {
   // *нахождение максимального числа(для стилей)
   function maxSeacher() {
     let allNums = allNumbers(numbers);
+
     if (Math.max(...allNums) > FIRST_COLOR_LEVEL) {
       return setMaxNumber(Math.max(...allNums));
     }
@@ -113,64 +118,78 @@ function GameField(props) {
   // *смещение в начало строки
   function toStart(line) {
     let newArr = line.filter((item) => {
+
       if (typeof item === "number") {
         return item;
       }
       return item;
     });
+
     if (newArr.length > 1) {
       sum = undefined;
       summ(newArr[0], newArr[1]);
+
       if (sum) {
         newArr[0] = sum;
         newArr[1] = "";
       }
     }
+
     if (newArr.length > 2) {
       sum = undefined;
       summ(newArr[1], newArr[2]);
+
       if (sum) {
         newArr[1] = sum;
         newArr[2] = "";
       }
     }
+
     if (newArr.length === 4) {
       sum = undefined;
       summ(newArr[2], newArr[3]);
+
       if (sum) {
         newArr[2] = sum;
         newArr[3] = "";
       }
     }
     finishArr = newArr.filter((item) => {
+
       if (typeof item === "number") {
         return item;
       }
       return item;
     });
+
     if (finishArr.length === 0) {
       finishArr = ["", "", "", ""];
     }
+
     if (finishArr.length === 1) {
       finishArr.push("");
       finishArr.push("");
       finishArr.push("");
     }
+
     if (finishArr.length === 2) {
       finishArr.push("");
       finishArr.push("");
     }
+
     if (finishArr.length === 3) {
       finishArr.push("");
     }
     return finishArr;
   }
+
   // *смещение в конец строки
   function toEnd(line) {
     let antiLine = line.reverse();
     let finishArr = toStart(antiLine);
     return finishArr.reverse();
   }
+
   // *вверх
   function toTop() {
     let startString = oldArrayString(numbers);
@@ -188,12 +207,14 @@ function GameField(props) {
       return i.number;
     });
     let endString = endNumbers.join();
+
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
         return item === "";
       });
+
       if (emptyCells.length === 0) {
         props.setPopupOpened(true);
         props.setPopupType("loose");
@@ -201,6 +222,7 @@ function GameField(props) {
     }
     maxSeacher();
   }
+
   // *влево
   function toLeft() {
     let startString = oldArrayString(numbers);
@@ -218,12 +240,14 @@ function GameField(props) {
       return i.number;
     });
     let endString = endNumbers.join();
+
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
         return item === "";
       });
+
       if (emptyCells.length === 0) {
         props.setPopupOpened(true);
         props.setPopupType("loose");
@@ -231,6 +255,7 @@ function GameField(props) {
     }
     maxSeacher();
   }
+
   // *вниз
   function toBottom() {
     let startString = oldArrayString(numbers);
@@ -248,12 +273,14 @@ function GameField(props) {
       return i.number;
     });
     let endString = endNumbers.join();
+
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
         return item === "";
       });
+
       if (emptyCells.length === 0) {
         props.setPopupOpened(true);
         props.setPopupType("loose");
@@ -261,6 +288,7 @@ function GameField(props) {
     }
     maxSeacher();
   }
+
   // *вправо
   function toRight() {
     let startString = oldArrayString(numbers);
@@ -278,12 +306,14 @@ function GameField(props) {
       return i.number;
     });
     let endString = endNumbers.join();
+
     if (startString !== endString) {
       setNewNumber();
     } else {
       let emptyCells = endNumbers.filter((item) => {
         return item === "";
       });
+
       if (emptyCells.length === 0) {
         props.setPopupOpened(true);
         props.setPopupType("loose");
@@ -296,6 +326,7 @@ function GameField(props) {
   let pressedKey = [];
   function handleKeydown(e) {
     e.preventDefault();
+
     if (pressedKey.length === 0) {
       pressedKey.push(e.key);
     }
@@ -304,7 +335,8 @@ function GameField(props) {
   // **игровое управление
   // *отклик на нажатие клавишь
   function handleKeyup(e) {
-      props.setRulesOpen(false);
+    props.setRulesOpen(false);
+
     if (pressedKey[0] === "ArrowUp") {
       e.preventDefault();
       toTop();
@@ -333,6 +365,7 @@ function GameField(props) {
       pressedKey.pop();
     }
   }
+
   // *тест-чит для победы
   function cheat() {
     let cheatField = numbers.map((i) => {
@@ -341,6 +374,7 @@ function GameField(props) {
     });
     props.setNumbers(cheatField);
   }
+
   // *тест-чит для проигрыша
   function looserCheat() {
     let cheatField = numbers.map((i, index) => {
@@ -349,21 +383,22 @@ function GameField(props) {
     });
     props.setNumbers(cheatField);
   }
+
   // **управление с мобильного устройства
   const sensitivity = 20;
   // *получаем точку касания
   function TouchStart(e) {
-    if (props.scrollLocker) {
-      setStopScrolling(true);
-      setTouchStart({
-        x: e.changedTouches[0].clientX,
-        y: e.changedTouches[0].clientY,
-      });
-      setTouchPosition({ x: touchStart.x, y: touchStart.y });
-    }
+    setStopScrolling(true);
+    setTouchStart({
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY,
+    });
+    setTouchPosition({ x: touchStart.x, y: touchStart.y });
   }
+
   // *Получаем новую позицию
   function TouchMove(e) {
+
     if (isStopScrolling) {
       e.preventDefault();
     }
@@ -372,14 +407,18 @@ function GameField(props) {
       y: e.changedTouches[0].clientY,
     });
   }
+
   // *Действия при свайпе
   function CheckAction() {
     let d = {
       x: touchStart.x - touchPosition.x,
       y: touchStart.y - touchPosition.y,
     };
+
     if (Math.abs(d.x) > Math.abs(d.y)) {
+
       if (Math.abs(d.x) > sensitivity) {
+
         if (d.x > 0) {
           toLeft();
         } else {
@@ -387,7 +426,9 @@ function GameField(props) {
         }
       }
     } else {
+
       if (Math.abs(d.y) > sensitivity) {
+
         if (d.y > 0) {
           toTop();
         } else {
@@ -396,6 +437,7 @@ function GameField(props) {
       }
     }
   }
+
   // *Окончание или отмена касания
   function TouchEnd() {
     CheckAction();
@@ -406,6 +448,7 @@ function GameField(props) {
 
   // *расставляем слушатели
   React.useEffect(() => {
+
     if (props.gameStarted) {
       window.addEventListener("keydown", handleKeydown);
       return () => {
@@ -414,6 +457,7 @@ function GameField(props) {
     }
   });
   React.useEffect(() => {
+
     if (props.gameStarted) {
       window.addEventListener("keyup", handleKeyup);
       return () => {
@@ -422,6 +466,7 @@ function GameField(props) {
     }
   });
   React.useEffect(() => {
+
     if (props.gameStarted && props.isMobile) {
       window.addEventListener("touchstart", TouchStart);
       window.addEventListener("touchmove", TouchMove, { passive: false });
@@ -438,8 +483,10 @@ function GameField(props) {
 
   // *вызов попапа победы
   React.useEffect(() => {
+
     if (maxNumber === MAX_NUMBER) {
       let popup = document.querySelector(".GamePopup_opened");
+
       if (!popup) {
         props.setPopupOpened(true);
         props.setPopupType("win");
@@ -478,5 +525,5 @@ function GameField(props) {
   );
 }
 
-// ***импорт
+// ***экспорт
 export default GameField;

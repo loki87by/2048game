@@ -13,6 +13,14 @@
     height: 4vw;
   }
 }
+@-webkit-keyframes flicker {
+  from {
+    font-size: 2.5vw;
+  }
+  to {
+    font-size: 3.5vw;
+  }
+}
 @keyframes flicker {
   from {
     font-size: 2.5vw;

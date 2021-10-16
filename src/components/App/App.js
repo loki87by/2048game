@@ -9,7 +9,7 @@ import { GAME } from "../../utils/consts";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import Popup from '../Popup/Popup'
+import Popup from "../Popup/Popup";
 import "../../vendor/normalize.css";
 import "./App.css";
 import "./styles/__text-container/App__text-container.css";
@@ -35,27 +35,30 @@ function App() {
     );
   const mobileRef = React.useRef(Mobile);
 
-  // *перезапуск геймплея
+  // перезапуск геймплея
   function restarter() {
-    const gameField = document.querySelector('.GameField')
-    gameField.setAttribute('style', 'background-color: rgb(128, 128, 127)')
+    const gameField = document.querySelector(".GameField");
+    gameField.setAttribute("style", "background-color: rgb(128, 128, 127)");
     setEndGame(true);
     newgame(GAME);
     setGameStarted(true);
     setScore(0);
   }
 
+  // переключение правил
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function toggleRules() {
     const state = !rulesOpen;
     setRulesOpen(state);
   }
 
+  // перезапуск геймплея
   function oneMoreStart() {
-    toggleRules()
-    restarter()
+    toggleRules();
+    restarter();
   }
 
-  // **проверка типа устройства пользователя
+  // проверка типа устройства пользователя
   React.useEffect(() => {
     setInterval(() => {
       const Mobile =
@@ -66,41 +69,69 @@ function App() {
     }, 15000);
   });
 
-  // **функции закрытия попапа
-  // *закрытие попапа
+  // скрытие правил по тапу и тачу
+  React.useEffect(() => {
+    function overlayRulesChecker() {
+      if (!mobileRef.current) {
+        toggleRules();
+        window.removeEventListener("click", overlayRulesChecker);
+      } else {
+        toggleRules();
+        window.removeEventListener("touchstart", overlayRulesChecker);
+      }
+    }
+    if (rulesOpen) {
+      if (!mobileRef.current) {
+        window.addEventListener("click", overlayRulesChecker);
+      } else {
+        window.addEventListener("touchstart", overlayRulesChecker);
+      }
+    }
+  }, [rulesOpen, toggleRules]);
+
+  // закрытие попапа
   function handlePopupClose() {
     setPopupOpened(false);
     setPopupType("");
   }
-  // *закрытие по esc
+
+  // закрытие попапа по esc
   function handleEscClose(e) {
     if (e.key === "Escape") {
       handlePopupClose();
     }
   }
-  // *закрытие по оверлею
+  // закрытие попапа по оверлею
   function handleClickClose(e) {
     if (e.target.classList.contains("Popup_opened")) {
       handlePopupClose();
     }
   }
-  // *слушатели закрытий
+  // слушатели закрытий
   React.useEffect(() => {
     window.addEventListener("keydown", handleEscClose);
     window.addEventListener("click", handleClickClose);
   });
 
-  // **DOM
+  // дебаггинг потенциального глюка с разницой в высоте
+  const height =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight;
+  const root = document.getElementById("root");
+  root.setAttribute("style", `height: ${height}px`);
+
+  // DOM
   return (
     <>
       <TranslationContext.Provider value={translations[lang]}>
         <Header
-          toggleRules={toggleRules}
           gameStarted={gameStarted}
           score={score}
-          setLang={setLang}
           lang={lang}
           isMobile={mobileRef.current}
+          toggleRules={toggleRules}
+          setLang={setLang}
         />
         <div
           className={`App__text-container ${
@@ -145,25 +176,26 @@ function App() {
         </div>
         <Main
           gameStarted={gameStarted}
-          restarter={restarter}
           endGame={endGame}
-          setEndGame={setEndGame}
           score={score}
+          isMobile={mobileRef.current}
+          restarter={restarter}
+          setEndGame={setEndGame}
           setScore={setScore}
           setGameStarted={setGameStarted}
-          isMobile={mobileRef.current}
           setRulesOpen={setRulesOpen}
           setPopupOpened={setPopupOpened}
           setPopupType={setPopupType}
         />
         <Footer />
         <Popup
-        isOpen={popupOpened}
-        onClose={handlePopupClose}
-        popupType={popupType}
-        setEndGame={setEndGame}
-        setGameStarted={setGameStarted}
-        restarter={restarter} />
+          isOpen={popupOpened}
+          popupType={popupType}
+          onClose={handlePopupClose}
+          setEndGame={setEndGame}
+          setGameStarted={setGameStarted}
+          restarter={restarter}
+        />
       </TranslationContext.Provider>
     </>
   );

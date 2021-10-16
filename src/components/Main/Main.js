@@ -9,9 +9,9 @@ import "./Main.css";
 function Main(props) {
   // **стейты
   const [numbers, setNumbers] = React.useState(GAME);
-  const [scrollLocker, setScrollLocker] = React.useState(false);//?
   const translation = React.useContext(TranslationContext);
 
+  // **анимация кнопки рестарта геймплея
   React.useEffect(() => {
     const button = document.querySelector(".App__restart-button");
 
@@ -19,6 +19,7 @@ function Main(props) {
       function startAnimation() {
         let arr = translation.restart.split("");
         let newArr = arr.map((i, n) => {
+
           if (i === " ") {
             return `<p class="App__restart-button_symbol" style="animation: none">&nbsp</p>`;
           } else {
@@ -48,10 +49,7 @@ function Main(props) {
     <section className="Main">
       <GameField
         numbers={numbers}
-        setNumbers={setNumbers}
         isMobile={props.isMobile}
-        scrollLocker={scrollLocker}
-        setScrollLocker={setScrollLocker} /* ? */
         gameStarted={props.gameStarted}
         setGameStarted={props.setGameStarted}
         setEndGame={props.setEndGame}
@@ -60,6 +58,7 @@ function Main(props) {
         setPopupOpened={props.setPopupOpened}
         setPopupType={props.setPopupType}
         setRulesOpen={props.setRulesOpen}
+        setNumbers={setNumbers}
       />
     </section>
   );

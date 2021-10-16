@@ -7,11 +7,14 @@
   z-index: 1;
   width: 78vmin;
   height: 78vmin;
+  -ms-grid-rows: 18vmin 2vmin 18vmin 2vmin 18vmin 2vmin 18vmin;
   grid-template-rows: repeat(4, 18vmin);
+  -ms-grid-columns: 18vmin 2vmin 18vmin 2vmin 18vmin 2vmin 18vmin;
   grid-template-columns: repeat(4, 18vmin);
   grid-gap: 2vmin;
   padding: 2vmin;
   margin: auto;
+  display: -ms-grid;
   display: grid;
   grid-template-areas:
     "top1 top2 top3 top4"

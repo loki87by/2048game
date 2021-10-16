@@ -3,5 +3,7 @@
   z-index: 2;
   top: -100%;
   background: var(--bg-color);
+  -webkit-transition: top 0.7s linear;
+  -o-transition: top 0.7s linear;
   transition: top 0.7s linear;
 }

@@ -12,6 +12,7 @@ import "./styles/__button/_rules/Header__button_rules.css";
 // **функционал
 function Header(props) {
   const translation = React.useContext(TranslationContext);
+
   // *языковой переключатель
   function langChanger() {
     if (props.lang === "ru") {
@@ -22,20 +23,26 @@ function Header(props) {
   }
 
   function openRules(e) {
-    if(e.clientX === 0) {
-      return
+    if (e.clientX === 0) {
+      return;
     }
-    props.toggleRules()
+    props.toggleRules();
   }
 
   React.useEffect(() => {
-    const body = document.querySelector('body')
-    const vmin = Math.min(body.clientHeight, body.clientWidth) / 100
-    if(props.isMobile && props.score > 0 && props.score / 1000 < 10 * vmin){
-    const headerScore = document.querySelector('.Header__score')
-    headerScore.setAttribute('style', `margin-top: ${props.score / 1000}px; margin-bottom: -${props.score / 1000}px;`)
+    const body = document.querySelector("body");
+    const vmin = Math.min(body.clientHeight, body.clientWidth) / 100;
+
+    if (props.isMobile && props.score > 0 && props.score / 100 < 10 * vmin) {
+      const headerScore = document.querySelector(".Header__score");
+      headerScore.setAttribute(
+        "style",
+        `margin-top: ${props.score / 100}px; margin-bottom: -${
+          props.score / 100
+        }px;`
+      );
     }
-  })
+  });
 
   // *DOM
   return (
@@ -66,5 +73,5 @@ function Header(props) {
     </header>
   );
 }
-// **импорт
+// **экспорт
 export default Header;
