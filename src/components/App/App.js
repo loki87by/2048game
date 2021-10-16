@@ -100,6 +100,7 @@ function App() {
           score={score}
           setLang={setLang}
           lang={lang}
+          isMobile={mobileRef.current}
         />
         <div
           className={`App__text-container ${
@@ -161,6 +162,7 @@ function App() {
         onClose={handlePopupClose}
         popupType={popupType}
         setEndGame={setEndGame}
+        setGameStarted={setGameStarted}
         restarter={restarter} />
       </TranslationContext.Provider>
     </>

@@ -28,6 +28,15 @@ function Header(props) {
     props.toggleRules()
   }
 
+  React.useEffect(() => {
+    const body = document.querySelector('body')
+    const vmin = Math.min(body.clientHeight, body.clientWidth) / 100
+    if(props.isMobile && props.score > 0 && props.score / 1000 < 10 * vmin){
+    const headerScore = document.querySelector('.Header__score')
+    headerScore.setAttribute('style', `margin-top: ${props.score / 1000}px; margin-bottom: -${props.score / 1000}px;`)
+    }
+  })
+
   // *DOM
   return (
     <header className="Header">
