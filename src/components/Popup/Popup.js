@@ -30,7 +30,6 @@ function Popup(props) {
     props.onClose();
     if (props.popupType === "loose") {
       props.setEndGame(true);
-      props.setGameStarted(true);
     } else {
       props.restarter();
     }

@@ -9,7 +9,7 @@ import "./Main.css";
 function Main(props) {
   // **стейты
   const [numbers, setNumbers] = React.useState(GAME);
-  const [scrollLocker, setScrollLocker] = React.useState(false);
+  const [scrollLocker, setScrollLocker] = React.useState(false);//?
   const translation = React.useContext(TranslationContext);
 
   React.useEffect(() => {
@@ -51,15 +51,15 @@ function Main(props) {
         setNumbers={setNumbers}
         isMobile={props.isMobile}
         scrollLocker={scrollLocker}
-        setScrollLocker={setScrollLocker}
+        setScrollLocker={setScrollLocker} /* ? */
         gameStarted={props.gameStarted}
         setGameStarted={props.setGameStarted}
-        endGame={props.endGame}
         setEndGame={props.setEndGame}
         score={props.score}
         setScore={props.setScore}
         setPopupOpened={props.setPopupOpened}
         setPopupType={props.setPopupType}
+        setRulesOpen={props.setRulesOpen}
       />
     </section>
   );

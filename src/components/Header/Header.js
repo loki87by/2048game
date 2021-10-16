@@ -21,6 +21,13 @@ function Header(props) {
     }
   }
 
+  function openRules(e) {
+    if(e.clientX === 0) {
+      return
+    }
+    props.toggleRules()
+  }
+
   // *DOM
   return (
     <header className="Header">
@@ -43,7 +50,7 @@ function Header(props) {
       )}
       <button
         className="Header__button Header__button_rules"
-        onClick={props.toggleRules}
+        onClick={openRules}
       >
         {translation.rulesTitle}
       </button>

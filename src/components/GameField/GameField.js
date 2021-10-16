@@ -34,8 +34,8 @@ function GameField(props) {
   let startGame = () => {
     props.setEndGame(false);
     props.setGameStarted(true);
-    props.setScrollLocker(true);
     setNewNumber();
+      props.setRulesOpen(false);
     window.removeEventListener("keydown", startGame);
     window.removeEventListener("touchstart", startGame);
   };
@@ -304,6 +304,7 @@ function GameField(props) {
   // **игровое управление
   // *отклик на нажатие клавишь
   function handleKeyup(e) {
+      props.setRulesOpen(false);
     if (pressedKey[0] === "ArrowUp") {
       e.preventDefault();
       toTop();

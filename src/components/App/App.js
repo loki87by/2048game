@@ -96,8 +96,6 @@ function App() {
       <TranslationContext.Provider value={translations[lang]}>
         <Header
           toggleRules={toggleRules}
-          endGame={endGame}
-          restarter={restarter}
           gameStarted={gameStarted}
           score={score}
           setLang={setLang}
@@ -153,7 +151,7 @@ function App() {
           setScore={setScore}
           setGameStarted={setGameStarted}
           isMobile={mobileRef.current}
-          lang={lang}
+          setRulesOpen={setRulesOpen}
           setPopupOpened={setPopupOpened}
           setPopupType={setPopupType}
         />
@@ -162,7 +160,6 @@ function App() {
         isOpen={popupOpened}
         onClose={handlePopupClose}
         popupType={popupType}
-        setGameStarted={setGameStarted}
         setEndGame={setEndGame}
         restarter={restarter} />
       </TranslationContext.Provider>
