@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/2048game/static/css/main.8ed42308.chunk.css",
+    "main.css": "/2048game/static/css/main.d948aaad.chunk.css",
     "main.js": "/2048game/static/js/main.6f664219.chunk.js",
     "main.js.map": "/2048game/static/js/main.6f664219.chunk.js.map",
     "runtime-main.js": "/2048game/static/js/runtime-main.d1cb3c88.js",
@@ -10,7 +10,7 @@
     "static/js/3.f0ad0f8c.chunk.js": "/2048game/static/js/3.f0ad0f8c.chunk.js",
     "static/js/3.f0ad0f8c.chunk.js.map": "/2048game/static/js/3.f0ad0f8c.chunk.js.map",
     "index.html": "/2048game/index.html",
-    "static/css/main.8ed42308.chunk.css.map": "/2048game/static/css/main.8ed42308.chunk.css.map",
+    "static/css/main.d948aaad.chunk.css.map": "/2048game/static/css/main.d948aaad.chunk.css.map",
     "static/js/2.5897f062.chunk.js.LICENSE.txt": "/2048game/static/js/2.5897f062.chunk.js.LICENSE.txt",
     "static/media/GameField.css": "/2048game/static/media/Iceberg-Regular.1ffbc606.woff",
     "static/media/RU.9a6254bc.png": "/2048game/static/media/RU.9a6254bc.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.d1cb3c88.js",
     "static/js/2.5897f062.chunk.js",
-    "static/css/main.8ed42308.chunk.css",
+    "static/css/main.d948aaad.chunk.css",
     "static/js/main.6f664219.chunk.js"
   ]
 }
